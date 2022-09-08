@@ -49,7 +49,12 @@ class ContactController extends Controller
             'message' => $request->message,
             'created_at' => Carbon::now()
         ]);
-
         return Redirect()->route('contact')->with('success', 'Your Message Send Successfully');
+    }
+
+    public function AdminMessage()
+    {
+        $messages = ContactForm::all();
+        return view('admin.contact.message', compact('messages'));
     }
 }
