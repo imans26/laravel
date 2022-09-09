@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
   <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
 
-  <!-- PLUGINS CSS STYLE 
+  <!-- PLUGINS CSS STYLE
   {{ asset('backend/') }} -->
   <link href="{{ asset('backend/assets/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('backend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
@@ -24,7 +24,7 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}" />
 
-  
+
 
   <!-- FAVICON -->
   <link href="{{ asset('backend/assets/img/favicon.png') }}" rel="shortcut icon" />
@@ -50,13 +50,13 @@
     <div class="mobile-sticky-body-overlay"></div>
 
     <div class="wrapper">
-      
+
               <!--
           ====================================
           ——— LEFT SIDEBAR WITH FOOTER
           =====================================
         -->
-@include('admin.body.sidebar')              
+@include('admin.body.sidebar')
 
       <div class="page-wrapper">
                   <!-- Header -->
@@ -134,15 +134,15 @@
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="{{ asset('backend/assets/img/user/user.png') }}" class="user-image" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">Abdus Salam</span>
+                      <img src="{{ Auth::user()->profile_photo_url }}" class="user-image" alt="User Image" />
+                      <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
-                        <img src="{{ asset('backend/assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
+                        <img src="{{ Auth::user()->profile_photo_url }}" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
-                          Abdus Salam <small class="pt-1">abdus@gmail.com</small>
+                            {{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
                         </div>
                       </li>
 
@@ -152,8 +152,8 @@
                         </a>
                       </li>
                       <li>
-                        <a href="email-inbox.html">
-                          <i class="mdi mdi-email"></i> Message
+                        <a href="{{ route('change.password') }}">
+                          <i class="mdi mdi-email"></i> Change Password
                         </a>
                       </li>
                       <li>
@@ -179,7 +179,7 @@
           <div class="content">
 
 @yield('admin')
-            
+
 </div>
 </div>
 
@@ -205,7 +205,7 @@
       </div>
     </div>
 
-    
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
 <script src="{{ asset('backend/assets/plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

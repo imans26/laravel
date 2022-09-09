@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ChangePass;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Models\Multipic;
@@ -96,3 +97,6 @@ Route::middleware([
 })->name('dashboard');
 
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
+
+//Change Password and user Profile Route
+Route::get('/user/password', [ChangePass::class, 'CPassword'])->name('change.password');
