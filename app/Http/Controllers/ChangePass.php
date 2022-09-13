@@ -28,7 +28,7 @@ class ChangePass extends Controller
             Auth::logout();
             return redirect()->route('login')->with('success', 'Password Is Change Successfully');
         } else {
-            return redirect()->back()->with('error', 'Current Passwird Is Invalid');
+            return redirect()->back()->with('error', 'Current Password Is Invalid');
         }
     }
 
