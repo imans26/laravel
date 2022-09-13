@@ -24,7 +24,7 @@
         <!-- SLEEK CSS -->
         <link id="sleek-css" rel="stylesheet" href="{{ asset('backend/assets/css/sleek.css') }}" />
 
-        
+
 
         <!-- FAVICON -->
         <link href="{{ asset('backend/assets/img/favicon.png') }}" rel="shortcut icon" />
@@ -60,6 +60,14 @@
                         </a>
                     </div>
                     </div>
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
                     <div class="card-body p-5">
 
                     <h4 class="text-dark mb-5">Sign In</h4>
@@ -79,7 +87,7 @@
                                 <input type="checkbox" />
                                 <div class="control-indicator"></div>
                                 </label>
-                        
+
                             </div>
                             <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
                             </div>
