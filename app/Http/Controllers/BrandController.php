@@ -57,7 +57,12 @@ class BrandController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->back()->with('success','Brand Inserted Successfully');
+        $notification = array(
+            'message' => 'Brand Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return Redirect()->back()->with($notification);
     }
 
     public function Edit($id)
@@ -97,8 +102,13 @@ class BrandController extends Controller
                 'brand_image' => $last_img,
                 'created_at' => Carbon::now()
             ]);
+
+            $notification = array(
+                'message' => 'Brand Updated Successfully',
+                'alert-type' => 'info'
+            );
     
-            return Redirect()->back()->with('success','Brand Updated Successfully');
+            return Redirect()->back()->with($notification);
         }
         else
         {
@@ -106,8 +116,13 @@ class BrandController extends Controller
                 'brand_name' => $request->brand_name,
                 'created_at' => Carbon::now()
             ]);
+
+            $notification = array(
+                'message' => 'Brand Updated Successfully',
+                'alert-type' => 'warning'
+            );
     
-            return Redirect()->back()->with('success','Brand Updated Successfully');
+            return Redirect()->back()->with($notification);
         }
     }
 
@@ -118,8 +133,16 @@ class BrandController extends Controller
         unlink($old_image);
 
         Brand::find($id)->delete();
-        return Redirect()->back()->with('success','Brand Delete Successfully');
+
+        $notification = array(
+            'message' => 'Brand Delete Successfully',
+            'alert-type' => 'error'
+        );
+
+        return Redirect()->back()->with($notification);
     }
+
+    
 
     // This is for Multi Image All Methods
     public function Multpic()
